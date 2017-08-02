@@ -1,11 +1,39 @@
 <resources>
-    <dimen name="horizontal_margin">8dp</dimen>
-    <dimen name="vertical_margin">8dp</dimen>
-    <dimen name="vertical_margin_small">4dp</dimen>
-    <dimen name="vertical_margin_extra_small">2dp</dimen>
-    <dimen name="text_size_small">18sp</dimen>
-    <dimen name="text_size_medium">16sp</dimen>
-    <dimen name="logo_width">300dp</dimen>
-    <dimen name="main_list_icon_size">25dp</dimen>
-    <dimen name="logo_margin_bottom">80dp</dimen>
+    <dimen name="horizontal_margin_large">25dp</dimen>
+    <dimen name="horizontal_margin">9dp</dimen>
+
+    <dimen name="vertical_margin_extra_small">3dp</dimen>
+    <dimen name="vertical_margin_small">6dp</dimen>
+    <dimen name="vertical_margin">9dp</dimen>
+    <dimen name="vertical_margin_large">15dp</dimen>
+
+    <dimen name="default_padding">6dp</dimen>
+    <dimen name="phone_padding">18dp</dimen>
+
+    <dimen name="margin_extra_large">50dp</dimen>
+
+    <dimen name="button_width_large">115dp</dimen>
+
+    <dimen name="edit_text_width_small">90dp</dimen>
+    <dimen name="edit_text_width">250dp</dimen>
+    <dimen name="edit_text_padding_horizontal">15dp</dimen>
+
+    <dimen name="text_size_extra_small">18sp</dimen>
+    <dimen name="text_size_small">20sp</dimen>
+    <dimen name="text_size_medium">22sp</dimen>
+    <dimen name="text_size_large">24sp</dimen>
+    <dimen name="text_size_button_edit_profile">18sp</dimen>
+
+    <dimen name="logo_width">420dp</dimen>
+    <dimen name="logo_margin_top">45dp</dimen>
+    <dimen name="logo_margin_bottom">10dp</dimen>
+    <dimen name="logo_wheelchair_size">60dp</dimen>
+
+    <dimen name="main_list_icon_size">30dp</dimen>
+
+    <dimen name="button_radius">6dp</dimen>
+    <dimen name="w_button_radius">4dp</dimen>
+    <dimen name="appbar_padding_top">4dp</dimen>
+    <dimen name="spinner_default">150dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

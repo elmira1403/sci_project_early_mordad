@@ -79,7 +79,7 @@ public class FavoritesActivity extends AppCompatActivity {
             String des =cursor.getString(cursor.getColumnIndex(F_DESC));
 
             Case temp= new Case(sub,vid,voi,txt,des);
-            bAdapter.whoKnows(temp);
+            bAdapter.inflateList(temp);
             cursor.moveToNext();
         }
 

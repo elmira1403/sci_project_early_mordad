@@ -4,7 +4,6 @@ package com.example.elmira.sci.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -31,7 +30,6 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import retrofit2.Retrofit;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 import static com.example.elmira.sci.R.id.editEmail;
@@ -48,8 +46,6 @@ public class SignUpActivity extends AppCompatActivity {
 
 
     SharedPreferences sharedPreferences;
-    public SQLiteDatabase mDatabase;
-    public String retrofit_result;
     String phone_number;
     String password;
 
@@ -95,7 +91,6 @@ public class SignUpActivity extends AppCompatActivity {
 
     Spinner sci_sp;
     InputMethodManager imm;
-    Retrofit retrofit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -398,47 +393,6 @@ public class SignUpActivity extends AppCompatActivity {
         editor.apply();
     }
 
-//    public boolean saveInfoOnServer() {
-//
-//        String email = sharedPreferences.getString("email", null);
-//        String birthday = sharedPreferences.getString("birthday", null);
-//        String sex = sharedPreferences.getString("sex", null);
-//        String sci_type = sharedPreferences.getString("sci_type", null);
-//        String experience_level = sharedPreferences.getString("experience_level", null);
-//        String upper_strength = sharedPreferences.getString("upper_strength", null);
-//        String h_real = sharedPreferences.getString("h_real", null);
-//        String w_real = sharedPreferences.getString("w_real", null);
-//        String height = sharedPreferences.getString("height", null);
-//        String fitness = sharedPreferences.getString("fitness", null);
-//
-//
-//        retrofit = new Retrofit.Builder()
-//                .baseUrl("http://elmirayafteh.ir/sciwebservice/").addConverterFactory(GsonConverterFactory.create())
-//                .build();
-//
-//        RegisterUser uService = retrofit.create(RegisterUser.class);
-//
-//        uService.registerUser(phone_number, password, email, birthday, sex, sci_type, "تجربه کافی",
-//                upper_strength, h_real, w_real, height, fitness).enqueue(new Callback<String>() {
-//
-//
-//            @Override
-//            public void onResponse(Call<String> call, Response<String> response) {
-//                if (response.isSuccessful()) {
-//                    retrofit_result = response.body();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<String> call, Throwable t) {
-//                retrofit_result = "false";
-//            }
-//
-//        });
-//
-//        return Boolean.parseBoolean(retrofit_result);
-//
-//    }
 
     @Override
     public void onBackPressed() {

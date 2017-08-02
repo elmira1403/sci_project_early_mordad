@@ -47,7 +47,6 @@
             android:layout_marginLeft="@dimen/horizontal_margin_large"
             android:layout_marginRight="@dimen/horizontal_margin_large"
             android:background="@drawable/light_button_shape"
-            android:backgroundTintMode="add"
             android:text="وارد شوید"
             android:textSize="@dimen/text_size_large"
             android:textStyle="bold"/>
@@ -101,14 +100,14 @@
             android:layout_marginBottom="@dimen/vertical_margin"
             android:background="@drawable/simple_box"
             android:orientation="horizontal"
-            android:paddingLeft="@dimen/default_padding"
-            android:paddingRight="@dimen/default_padding">
+            android:paddingLeft="@dimen/phone_padding"
+            android:paddingRight="@dimen/phone_padding">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/horizontal_margin"
-                android:layout_marginRight="@dimen/horizontal_margin"
+                android:layout_marginEnd="@dimen/phone_padding"
+                android:layout_marginRight="@dimen/phone_padding"
                 android:gravity="center_vertical"
                 android:text="+98"
                 android:textColor="@color/colorTextDark"
@@ -128,8 +127,8 @@
                 android:layout_gravity="center_horizontal"
                 android:gravity="start"
                 android:layout_marginBottom="@dimen/vertical_margin_extra_small"
-                android:layout_marginLeft="@dimen/horizontal_margin"
-                android:layout_marginStart="@dimen/horizontal_margin"
+                android:layout_marginLeft="@dimen/phone_padding"
+                android:layout_marginStart="@dimen/phone_padding"
                 android:background="@android:color/transparent"
                 android:hint="9120000000"
                 android:inputType="phone"
@@ -210,14 +209,14 @@
             android:layout_marginBottom="@dimen/vertical_margin"
             android:background="@drawable/simple_box"
             android:orientation="horizontal"
-            android:paddingLeft="@dimen/default_padding"
-            android:paddingRight="@dimen/default_padding">
+            android:paddingLeft="@dimen/phone_padding"
+            android:paddingRight="@dimen/phone_padding">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/horizontal_margin"
-                android:layout_marginRight="@dimen/horizontal_margin"
+                android:layout_marginEnd="@dimen/phone_padding"
+                android:layout_marginRight="@dimen/phone_padding"
                 android:gravity="center_vertical"
                 android:text="+98"
                 android:textColor="@color/colorTextDark"
@@ -234,8 +233,8 @@
                 android:id="@+id/phoneNumberEditSignUp"
                 android:layout_width="@dimen/edit_text_width"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/horizontal_margin"
-                android:layout_marginStart="@dimen/horizontal_margin"
+                android:layout_marginLeft="@dimen/phone_padding"
+                android:layout_marginStart="@dimen/phone_padding"
                 android:background="@android:color/transparent"
                 android:gravity="start"
                 android:hint="9120000000"

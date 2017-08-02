@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import com.example.elmira.sci.R;
 
@@ -16,29 +16,55 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class HelpActivity extends AppCompatActivity {
 
     String mCaller;
-    String[] help_string_array;
     String[] help_array;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.help);
+        setContentView(R.layout.activity_help);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        TextView textView = (TextView) findViewById(R.id.help_text);
+        ImageView imageView = (ImageView) findViewById(R.id.help_image);
 
         Intent intent = getIntent();
         mCaller = intent.getStringExtra("caller");
 
         help_array = getResources().getStringArray(R.array.helpArray);
-        help_string_array = getResources().getStringArray(R.array.helpStringArray);
-        for (String s : help_array) {
-            int i = s.indexOf(mCaller);
-            if (i >= 0) {
-                textView.setText(help_string_array[i]);
+        for (int i = 0; i < help_array.length; i++) {
+            if (help_array[i].contains(mCaller)) {
+
+                switch (help_array[i]) {
+                    case "main_help":
+                        imageView.setImageResource(R.drawable.help_main);
+                        break;
+
+                    case "recommend_help":
+                        imageView.setImageResource(R.drawable.help_rec);
+                        break;
+
+                    case "show_case_help":
+                        imageView.setImageResource(R.drawable.help_show_case);
+                        break;
+
+                    case "profile_help":
+                        imageView.setImageResource(R.drawable.help_profile);
+                        break;
+
+                    case "edit_profile_help":
+                        imageView.setImageResource(R.drawable.help_edit_profile);
+                        break;
+
+                    case "change_password_help":
+                        imageView.setImageResource(R.drawable.help_change_pass);
+                        break;
+
+                    case "fav_help":
+                        imageView.setImageResource(R.drawable.help_fav);
+                        break;
+                }
                 break;
             }
 

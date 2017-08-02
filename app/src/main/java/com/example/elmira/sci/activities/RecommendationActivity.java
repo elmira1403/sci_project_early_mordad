@@ -77,7 +77,7 @@ public class RecommendationActivity extends AppCompatActivity {
             String des =cursor.getString(cursor.getColumnIndex(DESC));
 
             Case temp= new Case(sub,vid,voi,txt,des);
-            aAdapter.whoKnows(temp);
+            aAdapter.inflateList(temp);
             cursor.moveToNext();
         }
 

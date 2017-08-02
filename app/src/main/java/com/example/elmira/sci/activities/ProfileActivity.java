@@ -69,13 +69,13 @@ public class ProfileActivity extends AppCompatActivity {
 
         if (id == R.id.action_help) {
             Intent i = new Intent(ProfileActivity.this, HelpActivity.class);
+            i.putExtra("caller", "profile_help");
             startActivity(i);
         }
 
         if (id == R.id.action_edit_profile) {
             Intent i;
             i = new Intent(ProfileActivity.this, EditProfileActivity.class);
-            i.putExtra("caller", "profile_help");
             startActivity(i);
             return true;
         }

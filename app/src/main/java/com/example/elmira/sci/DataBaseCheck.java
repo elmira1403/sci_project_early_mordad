@@ -49,8 +49,6 @@ public class DataBaseCheck {
                 .build();
 
         databaseInflater();
-        mediaFiles();
-
     }
 
     private void databaseInflater() {
@@ -70,13 +68,13 @@ public class DataBaseCheck {
             public void onResponse(Call<List<Case>> call, Response<List<Case>> response) {
                 if (response.isSuccessful()) {
                     mDatabase = new RecCaseBaseHelper(mContext).getWritableDatabase();
-//                    mDatabase.execSQL("delete from Solution");
 
                     for (int i = 0; i < response.body().size(); i++) {
                         ContentValues values = RecommendationActivity.getContentValues(response.body().get(i));
                         mDatabase.insert(RecCaseDbSchema.SolutionTable.NAME, null, values);
                     }
                     mDatabase.close();
+                    mediaFiles();
                 }
             }
 
@@ -85,6 +83,7 @@ public class DataBaseCheck {
                 Toast.makeText(mContext, "Unable to retrieve the list", Toast.LENGTH_LONG).show();
             }
         });
+
     }
 
     private void mediaFiles() {
@@ -103,9 +102,12 @@ public class DataBaseCheck {
             String voi = cursor.getString(cursor.getColumnIndex(VOICE));
 
             check = true;
-            for (File content : contents) {
-                if (content.getName().equals(vid)) {
-                    check = false;
+            if (contents != null) {
+                for (File content : contents) {
+                    if (content.getName().equals(vid)) {
+                        check = false;
+                    }
+
                 }
             }
 
@@ -118,6 +120,7 @@ public class DataBaseCheck {
             }
 
             cursor.moveToNext();
+
         }
         cursor.close();
         mDatabase.close();

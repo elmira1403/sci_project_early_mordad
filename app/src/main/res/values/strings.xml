@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">آموزشیار ضایعه نخاعی</string>
 
-    <string name="old_password">گذرواژه قدیم: </string>
+    <string name="old_password">گذرواژه قدیمی: </string>
     <string name="new_password">گذرواژه جدید: </string>
-    <string name="confirm_password">تایید گذرواژه: </string>
+    <string name="confirm_password">تکرار گذرواژه جدید: </string>
 
     <string name="action_edit_profile">ویرایش پروفایل</string>
     <string name="action_change_password">تغییر گذرواژه</string>
@@ -106,22 +106,14 @@
 
     </string-array>
 
-    <string name="main_help">ویرایش</string>
-    <string name="recommend_help">انصراف</string>
-    <string name="show_case_help">جهت</string>
-    <string name="profile_help">این</string>
-    <string name="edit_profile_help">خروج</string>
-    <string name="change_password_help">این</string>
-    <string name="fav_help">خروج</string>
-
     <string-array name="helpStringArray">
-        <item> @string/main_help </item>
-        <item> @string/recommend_help </item>
-        <item> @string/show_case_help </item>
-        <item> @string/profile_help </item>
-        <item> @string/edit_profile_help </item>
-        <item> @string/change_password_help </item>
-        <item> @string/fav_help </item>
+        <item> help_main </item>
+        <item> help_rec </item>
+        <item> help_show_case </item>
+        <item> help_profile </item>
+        <item> help_edit_profile </item>
+        <item> help_change_pass </item>
+        <item> help_fav </item>
 
     </string-array>
 

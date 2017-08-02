@@ -36,16 +36,8 @@ import static com.example.elmira.sci.R.id.listView;
 
 public class MainActivity extends AppCompatActivity {
     public SharedPreferences pref;
-    public SharedPreferences.OnSharedPreferenceChangeListener listener;
-    public final String SCI_TYPE = "sci_type";
-    public final String XP_LEVEL = "experience_level";
-    public final String FITNESS = "fitness";
-    public final String HEIGHT = "height";
-    public final String UP_STRENGTH = "upper_strength";
-    public final String SEX = "sex";
     public final String USER = "MyUser";
     public SQLiteDatabase mDatabase;
-    String DownloadUrl = "http://elmirayafteh.ir/sciwebservice/";
     String phone_number;
     private final static int WRITE_EXTERNAL_RESULT = 100;
 
@@ -107,21 +99,6 @@ public class MainActivity extends AppCompatActivity {
 
                     MyPreferences myPreferences = new MyPreferences(pref);
                     pref = myPreferences.saveOnDevice(mUserInfo);
-//                    SharedPreferences.Editor editor = pref.edit();
-//                    editor.putString("phone_number", phone_number);
-//                    editor.putString("password", mUserInfo.password);
-//                    editor.putString("email", mUserInfo.email);
-//                    editor.putString("birthday", mUserInfo.birthday);
-//                    editor.putString("sex", mUserInfo.sex);
-//                    editor.putString("sci_type", mUserInfo.sci_type);
-//                    editor.putString("experience_level", mUserInfo.experience_level);
-//                    editor.putString("upper_strength", mUserInfo.upper_strength);
-//                    editor.putString("height", mUserInfo.height);
-//                    editor.putString("fitness", mUserInfo.fitness);
-//                    editor.putString("h_real", mUserInfo.h_real);
-//                    editor.putString("w_real", mUserInfo.w_real);
-//
-//                    editor.apply();
 
                     askForPermission(gotPermission, askedBefore);
                     DataBaseCheck dataBaseCheck = new DataBaseCheck();
@@ -136,22 +113,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-//        mDatabase = new RecCaseBaseHelper(MainActivity.this).getWritableDatabase();
-//        Cursor mCursor = mDatabase.rawQuery("SELECT COUNT(*) FROM Solution", null);
-//        if (mCursor != null) {
-//            mCursor.moveToFirst();                       // Always one row returned.
-//            if (mCursor.getInt(0) == 0) {               // Zero count means empty table.
-//                databaseInflater(retrofit, pref);
-//            }
-//        }
-//        mCursor.close();
-
-//        askForPermission(gotPermission, askedBefore);
-////        databaseInflater(retrofit, pref);
-////        mediaFiles(MainActivity.this);
-//        DataBaseCheck dataBaseCheck = new DataBaseCheck();
-//        dataBaseCheck.dataBaseChecker(pref, MainActivity.this);
 
 
         homeListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
@@ -181,87 +142,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    public void databaseInflater(Retrofit retrofit, SharedPreferences pref) {
-//
-//        mDatabase = new RecCaseBaseHelper(MainActivity.this).getWritableDatabase();
-//        mDatabase.execSQL("delete from Solution");
-//        mDatabase.close();
-//
-//        String sci_type = pref.getString(SCI_TYPE, null);
-//        String experience_level = pref.getString(XP_LEVEL, null);
-//        String fitness = pref.getString(FITNESS, null);
-//        String height = pref.getString(HEIGHT, null);
-//        String upper_strength = pref.getString(UP_STRENGTH, null);
-//        String sex = pref.getString(SEX, null);
-//
-//        RCList service = retrofit.create(RCList.class);
-//
-//        service.getCases(sci_type, experience_level, fitness, height, upper_strength, sex).enqueue(new Callback<List<Case>>() {
-//
-//            @Override
-//            public void onResponse(Call<List<Case>> call, Response<List<Case>> response) {
-//                if (response.isSuccessful()) {
-//                    for (int i = 0; i < response.body().size(); i++) {
-//
-//                        mDatabase = new RecCaseBaseHelper(MainActivity.this).getWritableDatabase();
-//                        ContentValues values = RecommendationActivity.getContentValues(response.body().get(i));
-//                        mDatabase.insert(RecCaseDbSchema.SolutionTable.NAME, null, values);
-//                    }
-//                    mDatabase.close();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<Case>> call, Throwable t) {
-//                Toast.makeText(MainActivity.this, "Unable to retrieve the list", Toast.LENGTH_LONG).show();
-//            }
-//        });
-//    }
-//
-//    public void mediaFiles(Context mContext) {
-//
-//        SQLiteDatabase mDatabase = new RecCaseBaseHelper(mContext).getWritableDatabase();
-//        Cursor cursor = mDatabase.rawQuery("SELECT video_file, voice_file FROM Solution", null);
-//        cursor.moveToFirst();
-//
-//        File f = new File(Environment.getExternalStorageDirectory() + "/sci/videos");
-//        File[] contents = f.listFiles();
-//
-//        Boolean check;
-//
-//        while (!cursor.isAfterLast()) {
-//            String vid = cursor.getString(cursor.getColumnIndex(VIDEO));
-//            String voi = cursor.getString(cursor.getColumnIndex(VOICE));
-//
-//            check = true;
-//            for (File content : contents) {
-//                if (content.getName().equals(vid)) {
-//                    check = false;
-//                }
-//            }
-//
-//            if (!vid.equals("") && check) {
-//                downloadFile("videos", vid);
-//            }
-//
-//            if (!voi.equals("")) {
-//                downloadFile("voices", voi);
-//            }
-//
-//            cursor.moveToNext();
-//        }
-//        cursor.close();
-//        mDatabase.close();
-//    }
-//
-//    public void downloadFile(String folder, String fileName) {
-//        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(DownloadUrl + folder + "/" + fileName));
-//        request.allowScanningByMediaScanner();
-//        request.setDestinationInExternalPublicDir("sci/videos", fileName);
-//        DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-//        manager.enqueue(request);
-//
-//    }
 
     public void askForPermission(Boolean gotPermission, Boolean askedBefore) {
 

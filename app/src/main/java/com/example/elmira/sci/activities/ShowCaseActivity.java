@@ -57,7 +57,6 @@ public class ShowCaseActivity extends AppCompatActivity {
         desc = intent.getStringExtra("desc");
         url = intent.getStringExtra("voice_link");
         v_url = intent.getStringExtra("video_link");
-        //        String url = "http://s3.srv1.mihandl.in/nvis/sadegh/album/Britney%20Spears/2008%20%E2%80%93%20Circus/01%20-%20Britney%20Spears%20-%20Womanizer.mp3";
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
@@ -116,13 +115,7 @@ public class ShowCaseActivity extends AppCompatActivity {
                         .commit();
             }
         }
-    } else if(this.
-
-    getResources().
-
-    getConfiguration().orientation ==Configuration.ORIENTATION_LANDSCAPE)
-
-    {
+    } else if(this.getResources().getConfiguration().orientation ==Configuration.ORIENTATION_LANDSCAPE) {
 
         if (!v_url.equals("")) {
             fm = getSupportFragmentManager();

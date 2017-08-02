@@ -6,28 +6,23 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.util.List;
 
 public class CaseAdapter extends RecyclerView.Adapter<CaseViewHolder> {
-    public Context mContext;
-    public List<Case> mData;
+    private Context mContext;
+    private List<Case> mData;
 
     public CaseAdapter(Context context, List<Case> data) {
         mContext = context;
         mData = data;
     }
 
-    public void whoKnows(Case s) {
+    public void inflateList(Case s) {
         mData.add(s);
         notifyDataSetChanged();
     }
 
-
-    public void showErrorMessage() {
-        Toast.makeText(mContext, "Error Here in Case", Toast.LENGTH_LONG).show();
-    }
 
 
     @Override
@@ -38,7 +33,7 @@ public class CaseAdapter extends RecyclerView.Adapter<CaseViewHolder> {
 
     @Override
     public void onBindViewHolder(CaseViewHolder holder, int position) {
-        holder.bindData(mContext, mData.get(position));
+        holder.bindData(mData.get(position));
     }
 
     @Override
