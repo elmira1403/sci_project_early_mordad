@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+    <gradient android:angle="270"
+              android:endColor="@color/colorGreen" android:startColor="@color/colorDarkGreen" />
+    <corners
+        android:radius="@dimen/button_radius"/>
+    <padding
+        android:left="@dimen/vertical_margin_extra_small"
+        android:right="@dimen/vertical_margin_extra_small"
+        />
+    <stroke
+        android:width="2dp"
+        android:color="@color/colorDarkGreen"/>
+</shape>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layoutDirection="rtl"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:context="com.example.elmira.sci.activities.ProfileActivity"
+                tools:showIn="@layout/activity_profile">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/vertical_margin_small"
+        android:layout_marginLeft="@dimen/horizontal_margin"
+        android:layout_marginRight="@dimen/horizontal_margin"
+        android:layout_marginTop="@dimen/vertical_margin"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/purple_shape"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:paddingRight="7dp"
+            android:text="شماره تلفن همراه شما:"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/cellNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@android:color/white"
+            android:textDirection="ltr"
+            android:textSize="@dimen/text_size_small"
+            />
+
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/profile_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="@dimen/vertical_margin"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin"
+        android:clipToPadding="false"
+        android:clickable="false"
+        android:divider="@color/colorPrimaryBack"
+        android:dividerHeight="3.0sp">
+
+    </ListView>
+
+
+</RelativeLayout>

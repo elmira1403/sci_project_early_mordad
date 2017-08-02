@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layoutDirection="ltr"
+    android:orientation="horizontal">
+
+    <ImageButton
+        android:id="@+id/playButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:adjustViewBounds="true"
+        android:maxWidth="42dp"
+        android:maxHeight="42dp"
+        android:padding="7dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/play"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/audio_button"/>
+
+
+    <ImageButton
+        android:id="@+id/stopButton"
+        android:layout_gravity="left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:padding="8dp"
+        android:maxWidth="42dp"
+        android:maxHeight="42dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/stop"
+        android:background="@drawable/audio_button"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="توضیحات صوتی"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:textSize="@dimen/text_size_medium"
+        android:textColor="@color/colorWhite"
+        android:layout_gravity="right"/>
+
+</LinearLayout>

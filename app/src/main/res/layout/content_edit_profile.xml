@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:layoutDirection="rtl"
+             android:orientation="vertical"
+             app:layout_behavior="@string/appbar_scrolling_view_behavior"
+             tools:context="com.example.elmira.sci.activities.EditProfileActivity"
+             tools:showIn="@layout/activity_edit_profile">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:padding="@dimen/horizontal_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/vertical_margin_small"
+                android:gravity="center_horizontal"
+                android:text="@string/edit_message"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="bold"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/emailTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/horizontal_margin"
+                    android:layout_marginStart="@dimen/horizontal_margin"
+                    android:layout_weight="0.9"
+                    android:text="@string/email"
+                    android:textColor="@color/colorTextDark"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold"/>
+
+                <Button
+                    android:id="@+id/btn_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/blue_button_shape"
+                    android:text="@string/edit"
+                    android:textSize="@dimen/text_size_button_edit_profile"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/editEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                android:layout_marginLeft="@dimen/horizontal_margin_large"
+                android:layout_marginRight="@dimen/horizontal_margin_large"
+                android:background="@drawable/simple_box"
+                android:inputType="textEmailAddress"
+                android:padding="@dimen/default_padding"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/not_valid_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                android:layout_marginLeft="@dimen/horizontal_margin"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:text="ایمیل وارد شده معتبر نیست"
+                android:textColor="@color/colorAccent"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/emailTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_small"
+                android:visibility="visible"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/dateOfBirthTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/horizontal_margin"
+                    android:layout_marginStart="@dimen/horizontal_margin"
+                    android:layout_weight="0.9"
+                    android:text="@string/birthday"
+                    android:textColor="@color/colorTextDark"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold"/>
+
+                <Button
+                    android:id="@+id/btn_dob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/blue_button_shape"
+                    android:text="@string/edit"
+                    android:textSize="@dimen/text_size_button_edit_profile"/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/dateOfBirthTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_small"/>
+
+            <LinearLayout
+                android:id="@+id/editDateOfBirth"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                android:background="@drawable/simple_box"
+                android:orientation="horizontal"
+                android:padding="@dimen/default_padding"
+                android:visibility="gone">
+
+                <NumberPicker
+                    android:id="@+id/dayPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="@dimen/vertical_margin_extra_small"
+                    android:divider="@color/colorAccent"
+                    />
+
+                <NumberPicker
+                    android:id="@+id/monthPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="@dimen/vertical_margin_extra_small"
+                    android:divider="@color/colorAccent"/>
+
+                <NumberPicker
+                    android:id="@+id/yearPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="@dimen/vertical_margin_extra_small"
+                    android:divider="@color/colorAccent"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/not_valid_dob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                android:layout_marginLeft="@dimen/horizontal_margin"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:text="تاریخ تولد وارد شده معتبر نیست"
+                android:textColor="@color/colorAccent"
+                android:visibility="gone"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                android:layout_marginLeft="@dimen/horizontal_margin"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/heightTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.5"
+                    android:text="@string/height"
+                    android:textColor="@color/colorTextDark"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/heightTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_size_small"
+                    android:visibility="visible"/>
+
+                <EditText
+                    android:id="@+id/heightEdit"
+                    android:layout_width="@dimen/edit_text_width_small"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/simple_box"
+                    android:divider="@color/colorPrimaryDark"
+                    android:gravity="center_horizontal"
+                    android:inputType="number"
+                    android:visibility="gone"/>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"/>
+
+                <Button
+                    android:id="@+id/btn_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/blue_button_shape"
+                    android:text="@string/edit"
+                    android:textSize="@dimen/text_size_button_edit_profile"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/not_valid_height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                android:layout_marginLeft="@dimen/horizontal_margin"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:text="لطفا قد خود را به سانتیمتر وارد کنید"
+                android:textColor="@color/colorAccent"
+                android:visibility="gone"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                android:layout_marginLeft="@dimen/horizontal_margin"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/weightTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.5"
+                    android:text="@string/weight"
+                    android:textColor="@color/colorTextDark"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/weightTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_size_small"
+                    android:visibility="visible"/>
+
+
+                <EditText
+                    android:id="@+id/weightEdit"
+                    android:layout_width="@dimen/edit_text_width_small"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/simple_box"
+                    android:divider="@color/colorPrimaryDark"
+                    android:gravity="center_horizontal"
+                    android:inputType="number"
+                    android:visibility="gone"/>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"/>
+
+                <Button
+                    android:id="@+id/btn_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/blue_button_shape"
+                    android:text="@string/edit"
+                    android:textSize="@dimen/text_size_button_edit_profile"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/not_valid_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                android:layout_marginLeft="@dimen/horizontal_margin"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:text="لطفا وزن خود را به کیلوگرم وارد کنید"
+                android:textColor="@color/colorAccent"
+                android:visibility="gone"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/sciTypeTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                    android:layout_marginLeft="@dimen/horizontal_margin"
+                    android:layout_marginStart="@dimen/horizontal_margin"
+                    android:layout_weight="0.3"
+                    android:text="@string/sci_type"
+                    android:textColor="@color/colorTextDark"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold"/>
+
+                <Spinner
+                    android:id="@+id/sciTypeSpinner"
+                    android:layout_width="@dimen/spinner_default"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="start"
+                    android:background="@drawable/spinner_background_9"
+                    android:entries="@array/sci_type_arrays"
+                    android:spinnerMode="dropdown"
+                    android:textAlignment="viewStart"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/xpLevelTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                    android:layout_marginLeft="@dimen/horizontal_margin"
+                    android:layout_marginStart="@dimen/horizontal_margin"
+                    android:layout_weight="0.1"
+                    android:text="@string/xp_level"
+                    android:textColor="@color/colorTextDark"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold"/>
+
+                <Spinner
+                    android:id="@+id/xpLevelSpinner"
+                    android:layout_width="@dimen/spinner_default"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/spinner_background_9"
+                    android:entries="@array/xp_level_arrays"
+                    android:spinnerMode="dropdown"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/upStrTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                    android:layout_marginLeft="@dimen/horizontal_margin"
+                    android:layout_marginStart="@dimen/horizontal_margin"
+                    android:layout_weight="0.1"
+                    android:text="@string/upper_strength"
+                    android:textColor="@color/colorTextDark"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold"/>
+
+                <Spinner
+                    android:id="@+id/upStrSpinner"
+                    android:layout_width="@dimen/spinner_default"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/spinner_background_9"
+                    android:entries="@array/upper_strength_arrays"
+                    android:spinnerMode="dropdown"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/vertical_margin_small"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/genderTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                    android:layout_marginLeft="@dimen/horizontal_margin"
+                    android:layout_marginStart="@dimen/horizontal_margin"
+                    android:layout_weight="0.2"
+                    android:text="@string/sex"
+                    android:textColor="@color/colorTextDark"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold"/>
+
+                <Spinner
+                    android:id="@+id/sexSpinner"
+                    android:layout_width="@dimen/spinner_default"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/spinner_background_9"
+                    android:entries="@array/sex_arrays"
+                    android:spinnerMode="dropdown"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/change_pass_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/blue_button_shape"
+                android:paddingLeft="@dimen/edit_text_padding_horizontal"
+                android:paddingRight="@dimen/edit_text_padding_horizontal"
+                android:text="@string/action_change_password"
+                android:textSize="@dimen/text_size_button_edit_profile"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="65dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</FrameLayout>

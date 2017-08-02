@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/login_shape"
+              android:gravity="top"
+              android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_width="@dimen/logo_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/logo_margin_top"
+        android:src="@drawable/app_name_logo"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/logo_wheelchair_size"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/logo_wheelchair"
+        android:layout_marginBottom="@dimen/logo_margin_bottom"
+        />
+
+    <LinearLayout
+        android:id="@+id/welcomeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/logo_margin_top"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/horizontal_margin_large"
+            android:layout_marginRight="@dimen/horizontal_margin_large"
+            android:gravity="center_horizontal"
+            android:text="حساب کاربری دارید؟"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_medium"/>
+
+        <Button
+            android:id="@+id/button_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/horizontal_margin_large"
+            android:layout_marginRight="@dimen/horizontal_margin_large"
+            android:background="@drawable/light_button_shape"
+            android:backgroundTintMode="add"
+            android:text="وارد شوید"
+            android:textSize="@dimen/text_size_large"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/horizontal_margin_large"
+            android:layout_marginRight="@dimen/horizontal_margin_large"
+            android:gravity="center_horizontal"
+            android:text="یا"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_medium"/>
+
+        <Button
+            android:id="@+id/button_sign_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/horizontal_margin_large"
+            android:layout_marginRight="@dimen/horizontal_margin_large"
+            android:background="@drawable/light_button_shape"
+            android:text="ثبت نام کنید"
+            android:textSize="@dimen/text_size_large"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/signInLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/horizontal_margin_large"
+        android:layout_marginRight="@dimen/horizontal_margin_large"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="@string/phone_number"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_medium"/>
+
+        <LinearLayout
+            android:layout_width="@dimen/edit_text_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/vertical_margin"
+            android:background="@drawable/simple_box"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/default_padding"
+            android:paddingRight="@dimen/default_padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/horizontal_margin"
+                android:layout_marginRight="@dimen/horizontal_margin"
+                android:gravity="center_vertical"
+                android:text="+98"
+                android:textColor="@color/colorTextDark"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="@dimen/main_list_icon_size"
+                android:background="@color/colorTextDark"
+                android:layout_gravity="center_vertical"/>
+
+            <EditText
+                android:id="@+id/phoneNumberEditSignIn"
+                android:layout_width="@dimen/edit_text_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="start"
+                android:layout_marginBottom="@dimen/vertical_margin_extra_small"
+                android:layout_marginLeft="@dimen/horizontal_margin"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:background="@android:color/transparent"
+                android:hint="9120000000"
+                android:inputType="phone"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/password"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_medium"/>
+
+        <EditText
+            android:id="@+id/passwordEditSignIn"
+            android:layout_width="@dimen/edit_text_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/vertical_margin"
+            android:background="@drawable/simple_box"
+            android:inputType="textPassword"
+            android:paddingLeft="@dimen/edit_text_padding_horizontal"
+            android:paddingRight="@dimen/edit_text_padding_horizontal"
+            android:textSize="@dimen/text_size_medium"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/button_sign_in2"
+            android:layout_width="@dimen/button_width_large"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/light_button_shape"
+            android:text="@string/login"
+            android:textSize="@dimen/text_size_medium"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/forgetPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:text="@string/forgot_password"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_extra_small"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/signUpLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/edit_text_padding_horizontal"
+        android:layout_marginRight="@dimen/edit_text_padding_horizontal"
+        android:layout_marginTop="@dimen/margin_extra_large"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/phone_number"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_medium"/>
+
+
+        <LinearLayout
+            android:layout_width="@dimen/edit_text_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/vertical_margin"
+            android:background="@drawable/simple_box"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/default_padding"
+            android:paddingRight="@dimen/default_padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/horizontal_margin"
+                android:layout_marginRight="@dimen/horizontal_margin"
+                android:gravity="center_vertical"
+                android:text="+98"
+                android:textColor="@color/colorTextDark"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="@dimen/main_list_icon_size"
+                android:background="@color/colorTextDark"
+                android:layout_gravity="center_vertical"/>
+
+            <EditText
+                android:id="@+id/phoneNumberEditSignUp"
+                android:layout_width="@dimen/edit_text_width"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/horizontal_margin"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:background="@android:color/transparent"
+                android:gravity="start"
+                android:hint="9120000000"
+                android:inputType="phone"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/button_sign_up2"
+            android:layout_width="@dimen/button_width_large"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:background="@drawable/light_button_shape"
+            android:text="@string/sign_up"
+            android:textSize="@dimen/text_size_large"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/verification_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_extra_large"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="کد دریافتی را وارد کنید"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_medium"
+            />
+
+
+        <EditText
+            android:id="@+id/edit_code_verify"
+            android:layout_width="@dimen/edit_text_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/vertical_margin"
+            android:background="@drawable/simple_box"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:paddingLeft="@dimen/edit_text_padding_horizontal"
+            android:paddingRight="@dimen/edit_text_padding_horizontal"
+            android:textSize="@dimen/text_size_medium"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/button_verify"
+            android:layout_width="@dimen/button_width_large"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:background="@drawable/light_button_shape"
+            android:text="@string/ok"
+            android:textSize="@dimen/text_size_large"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/resend_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:text="ارسال مجدد کد"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_extra_small"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
