@@ -7,7 +7,7 @@
                                                  android:fitsSystemWindows="true"
                                                  android:layoutDirection="rtl"
                                                  android:background="@color/colorPrimaryBack"
-                                                 tools:context="com.example.elmira.sci.activities.MainActivity">
+                                                 tools:context="ir.elmirayafteh.spinalcordinjury.sci.activities.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

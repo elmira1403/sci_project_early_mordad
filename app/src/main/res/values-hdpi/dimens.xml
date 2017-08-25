@@ -21,7 +21,7 @@
     <dimen name="edit_text_padding_horizontal">10dp</dimen>
 
     <dimen name="default_padding">5dp</dimen>
-    <dimen name="phone_padding">20dp</dimen>
+    <dimen name="phone_padding">15dp</dimen>
 
     <dimen name="text_size_small">16sp</dimen>
     <dimen name="text_size_medium">18sp</dimen>

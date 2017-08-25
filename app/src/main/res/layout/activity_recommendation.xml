@@ -6,7 +6,7 @@
                                                  android:layout_height="match_parent"
                                                  android:fitsSystemWindows="true"
                                                  android:layoutDirection="rtl"
-                                                 tools:context="com.example.elmira.sci.activities.RecommendationActivity">
+                                                 tools:context="ir.elmirayafteh.spinalcordinjury.sci.activities.RecommendationActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

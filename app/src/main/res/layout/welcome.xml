@@ -252,7 +252,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/vertical_margin"
             android:background="@drawable/light_button_shape"
-            android:text="@string/sign_up"
+            android:text="ارسال کد"
             android:textSize="@dimen/text_size_large"
             android:textStyle="bold"/>
 
@@ -284,7 +284,6 @@
             android:layout_marginBottom="@dimen/vertical_margin"
             android:background="@drawable/simple_box"
             android:gravity="center_horizontal"
-            android:inputType="number"
             android:paddingLeft="@dimen/edit_text_padding_horizontal"
             android:paddingRight="@dimen/edit_text_padding_horizontal"
             android:textSize="@dimen/text_size_medium"

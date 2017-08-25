@@ -8,7 +8,7 @@
     <dimen name="vertical_margin_large">20dp</dimen>
 
     <dimen name="default_padding">8dp</dimen>
-    <dimen name="phone_padding">24dp</dimen>
+    <dimen name="phone_padding">16dp</dimen>
 
     <dimen name="margin_extra_large">70dp</dimen>
 

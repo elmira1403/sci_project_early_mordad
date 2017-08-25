@@ -20,7 +20,7 @@
     <string name="title_activity_profile">پروفایل</string>
     <string name="title_activity_favorite_cases">مورد علاقه ها</string>
 
-    <string name="sex">جنسیت:</string>
+    <string name="gender">جنسیت:</string>
     <string name="upper_strength">قوای جسمانی بالاتنه:</string>
     <string name="xp_level">میزان تجربه:</string>
     <string name="birthday">تاریخ تولد:</string>
@@ -49,9 +49,11 @@
         <item>T8</item>
         <item>T9</item>
         <item>T10</item>
+        <item>T11</item>
+        <item>T12</item>
     </string-array>
 
-    <string-array name="sex_arrays">
+    <string-array name="gender_arrays">
         <item>مرد</item>
         <item>زن</item>
     </string-array>
@@ -86,13 +88,16 @@
     <string-array name="homeList">
         <item>پروفایل</item>
         <item>حرکات پیشنهادی برای شما</item>
+        <item>تمرین های پیشنهادی برای شما</item>
         <item>مورد علاقه ها</item>
+        <item>راهنمای برنامه</item>
     </string-array>
     <string name="edit">ویرایش</string>
     <string name="editing">انصراف</string>
     <string name="edit_message">جهت ثبت تغییرات دکمه تایید را فشار دهید</string>
-    <string name="account_error">این شماره تلفن فاقد حساب کاربری است\nلطفا ثبت نام کنید</string>
+    <string name="account_error">حساب کاربری یا گذرواژه اشتباه است</string>
     <string name="log_out">خروج از حساب کاربری</string>
+    <string name="exercise_label">تمرین های پیشنهادی برای شما</string>
 
     <string-array name="profileList">
         <item>ایمیل:</item>
@@ -109,7 +114,9 @@
     <string-array name="helpStringArray">
         <item> help_main </item>
         <item> help_rec </item>
+        <item> help_exercise </item>
         <item> help_show_case </item>
+        <item> help_show_exercise </item>
         <item> help_profile </item>
         <item> help_edit_profile </item>
         <item> help_change_pass </item>
@@ -120,12 +127,17 @@
     <string-array name="helpArray">
         <item> main_help </item>
         <item> recommend_help </item>
+        <item> exercise_help </item>
         <item> show_case_help </item>
+        <item> show_exercise_help </item>
         <item> profile_help </item>
         <item> edit_profile_help </item>
         <item> change_password_help </item>
         <item> fav_help </item>
 
     </string-array>
+    <string name="title_activity_loading_data">LoadingDataActivity</string>
+    <string name="title_activity_tut">TutActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 
 </resources>

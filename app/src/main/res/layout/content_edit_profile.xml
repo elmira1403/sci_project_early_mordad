@@ -8,7 +8,7 @@
             android:layoutDirection="rtl"
             android:orientation="vertical"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:context="com.example.elmira.sci.activities.EditProfileActivity"
+            tools:context="ir.elmirayafteh.spinalcordinjury.sci.activities.EditProfileActivity"
             tools:showIn="@layout/activity_edit_profile">
 
 
@@ -427,18 +427,18 @@
                 android:layout_marginLeft="@dimen/horizontal_margin"
                 android:layout_marginStart="@dimen/horizontal_margin"
                 android:layout_weight="0.2"
-                android:text="@string/sex"
+                android:text="@string/gender"
                 android:textColor="@color/colorTextDark"
                 android:textSize="@dimen/text_size_small"
                 android:textStyle="bold"/>
 
             <Spinner
-                android:id="@+id/sexSpinner"
+                android:id="@+id/genderSpinner"
                 android:layout_width="@dimen/spinner_default"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:background="@drawable/spinner_background_9"
-                android:entries="@array/sex_arrays"
+                android:entries="@array/gender_arrays"
                 android:spinnerMode="dropdown"/>
 
         </LinearLayout>

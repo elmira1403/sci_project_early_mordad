@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.elmira.sci.activities.RecommendationActivity"
-    tools:showIn="@layout/activity_recommendation">
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             app:layout_behavior="@string/appbar_scrolling_view_behavior"
+             tools:context="ir.elmirayafteh.spinalcordinjury.sci.activities.RecommendationActivity"
+             tools:showIn="@layout/activity_recommendation">
 
     <android.support.v7.widget.RecyclerView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/recycView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
         android:paddingBottom="@dimen/vertical_margin"
         android:paddingLeft="@dimen/horizontal_margin"
         android:paddingRight="@dimen/horizontal_margin"
-        android:paddingTop="@dimen/vertical_margin"
-        android:clipToPadding="false"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:paddingTop="@dimen/vertical_margin">
     </android.support.v7.widget.RecyclerView>
 
 </FrameLayout>
