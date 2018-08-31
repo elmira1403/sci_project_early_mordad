@@ -11,9 +11,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MyPreferences {
 
-    Retrofit retrofit;
-    String retrofit_result;
-    SharedPreferences sharedPreferences;
+    private Retrofit retrofit;
+    private String retrofit_result;
+    private SharedPreferences sharedPreferences;
 
     private RetroResultListener mListener;
 

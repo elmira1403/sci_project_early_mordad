@@ -76,12 +76,12 @@ public class WelcomeActivity extends AppCompatActivity {
 
         welcome_layout = (LinearLayout) findViewById(R.id.welcomeLayout);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                welcome_layout.setVisibility(View.VISIBLE);
-            }
-        }, 3000);
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                welcome_layout.setVisibility(View.VISIBLE);
+//            }
+//        }, 3000);
 
 
         sharedpreferences = this.getSharedPreferences(USER, MODE_PRIVATE);
@@ -206,7 +206,7 @@ public class WelcomeActivity extends AppCompatActivity {
                                         editor.putString("fitness", mUserInfo.fitness);
                                         editor.putString("h_real", mUserInfo.h_real);
                                         editor.putString("w_real", mUserInfo.w_real);
-                                        editor.apply();
+                                        editor.commit();
 
 
                                         Intent i = new Intent(WelcomeActivity.this, MainActivity.class);

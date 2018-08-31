@@ -77,89 +77,87 @@ public class ShowCaseActivity extends AppCompatActivity {
                 textTextView.setText(text);
             }
 
-        if (!v_url.equals("")) {
-            if (!desc.equals("")) {
-                descTextView.setVisibility(View.VISIBLE);
-                descTextView.setText(desc);
+            if (!v_url.equals("")) {
+                if (desc!=null && !desc.equals("")) {
+                    descTextView.setVisibility(View.VISIBLE);
+                    descTextView.setText(desc);
+                }
+
+                fm = getSupportFragmentManager();
+                fragment = fm.findFragmentById(R.id.videoFragment);
+
+                if (fragment == null) {
+                    fragment = new VideoPlayerFragment();
+                    Bundle args = new Bundle();
+                    args.putString("video_link", v_url);
+                    fragment.setArguments(args);
+                    fm.beginTransaction()
+                            .add(R.id.videoFragment, fragment)
+                            .commit();
+                }
             }
 
-            fm = getSupportFragmentManager();
-            fragment = fm.findFragmentById(R.id.videoFragment);
 
-            if (fragment == null) {
-                fragment = new VideoPlayerFragment();
-                Bundle args = new Bundle();
-                args.putString("video_link", v_url);
-                fragment.setArguments(args);
-                fm.beginTransaction()
-                        .add(R.id.videoFragment, fragment)
-                        .commit();
+            if (!url.equals("")) {
+                vc_fm = getSupportFragmentManager();
+                vc_fragment = vc_fm.findFragmentById(R.id.voiceFragment);
+
+                if (vc_fragment == null) {
+                    vc_fragment = new VoicePlayerFragment();
+                    Bundle args = new Bundle();
+                    args.putString("voice_link", url);
+                    vc_fragment.setArguments(args);
+                    vc_fm.beginTransaction()
+                            .add(R.id.voiceFragment, vc_fragment)
+                            .commit();
+                }
+            }
+        } else if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+
+            if (!v_url.equals("")) {
+                fm = getSupportFragmentManager();
+                fragment = fm.findFragmentById(R.id.videoFragment);
+
+                getWindow().getDecorView().setSystemUiVisibility(
+                        View.SYSTEM_UI_FLAG_FULLSCREEN
+                                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+                if (fragment == null) {
+                    fragment = new VideoPlayerFragment();
+                    Bundle args = new Bundle();
+                    args.putString("video_link", v_url);
+                    fragment.setArguments(args);
+                    fm.beginTransaction()
+                            .add(R.id.videoFragment, fragment)
+                            .commit();
+                }
+
             }
         }
 
 
-        if (!url.equals("")) {
-            vc_fm = getSupportFragmentManager();
-            vc_fragment = vc_fm.findFragmentById(R.id.voiceFragment);
+        mDatabase = openOrCreateDatabase(DB_NAME, MODE_PRIVATE, null);
 
-            if (vc_fragment == null) {
-                vc_fragment = new VoicePlayerFragment();
-                Bundle args = new Bundle();
-                args.putString("voice_link", url);
-                vc_fragment.setArguments(args);
-                vc_fm.beginTransaction()
-                        .add(R.id.voiceFragment, vc_fragment)
-                        .commit();
-            }
-        }
-    } else if(this.getResources().getConfiguration().orientation ==Configuration.ORIENTATION_LANDSCAPE) {
-
-        if (!v_url.equals("")) {
-            fm = getSupportFragmentManager();
-            fragment = fm.findFragmentById(R.id.videoFragment);
-
-            getWindow().getDecorView().setSystemUiVisibility(
-                    View.SYSTEM_UI_FLAG_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-
-            if (fragment == null) {
-                fragment = new VideoPlayerFragment();
-                Bundle args = new Bundle();
-                args.putString("video_link", v_url);
-                fragment.setArguments(args);
-                fm.beginTransaction()
-                        .add(R.id.videoFragment, fragment)
-                        .commit();
-            }
-
-        }
-    }
-
-
-    mDatabase =
-
-    openOrCreateDatabase(DB_NAME, MODE_PRIVATE, null);
-
-    Cursor cursor = mDatabase.rawQuery("SELECT * FROM Favorites", null);
+        Cursor cursor = mDatabase.rawQuery("SELECT * FROM Favorites", null);
         cursor.moveToFirst();
 
-        while(!cursor.isAfterLast())
+        while (!cursor.isAfterLast())
 
-    {
-        String sub = cursor.getString(cursor.getColumnIndex(RecCaseDbSchema.FavoritesTable.Cols.F_SUBJECT));
+        {
+            String sub = cursor.getString(cursor.getColumnIndex(RecCaseDbSchema.FavoritesTable.Cols.F_SUBJECT));
 
-        if (sub.equals(subject)) {
-            star = true;
+            if (sub.equals(subject)) {
+                star = true;
+            }
+            cursor.moveToNext();
         }
-        cursor.moveToNext();
-    }
         cursor.close();
         mDatabase.close();
 
-}
+    }
 
 
     public void removeSingleRow(String title) {

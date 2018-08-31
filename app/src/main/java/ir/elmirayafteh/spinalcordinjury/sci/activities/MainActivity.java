@@ -1,12 +1,12 @@
 package ir.elmirayafteh.spinalcordinjury.sci.activities;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -39,12 +39,13 @@ public class MainActivity extends AppCompatActivity {
     String phone_number;
     String password;
     private final static int WRITE_EXTERNAL_RESULT = 100;
-
+    private ProgressDialog progress;
+    public ProgressDialog dl_progress;
     ListView homeListView;
     Retrofit retrofit;
 
     Boolean askedBefore;
-    Boolean gotPermission;
+    Boolean gotPermission = false;
 
     private Integer imageId[] = {
             R.drawable.user,
@@ -74,18 +75,18 @@ public class MainActivity extends AppCompatActivity {
         phone_number = pref.getString("phone_number", null);
         password = pref.getString("password", null);
 
-        if (!pref.contains("asked_before")) {
-            askedBefore = false;
-            gotPermission = false;
-        } else {
-            if (pref.getString("asked_before", null)==null) {
-                askedBefore = false;
-                gotPermission = false;
-            } else {
-                askedBefore = Boolean.parseBoolean(pref.getString("asked_before", null));
-                gotPermission = Boolean.parseBoolean(pref.getString("got_permission", null));
-            }
-        }
+//        if (!pref.contains("asked_before")) {
+//            askedBefore = false;
+//            gotPermission = false;
+//        } else {
+//            if (pref.getString("asked_before", null) == null) {
+//                askedBefore = false;
+//                gotPermission = false;
+//            } else {
+//                askedBefore = Boolean.parseBoolean(pref.getString("asked_before", null));
+//                gotPermission = Boolean.parseBoolean(pref.getString("got_permission", null));
+//            }
+//        }
 
         retrofit = new Retrofit.Builder()
                 .baseUrl("http://elmirayafteh.ir/sciwebservice/").addConverterFactory(GsonConverterFactory.create())
@@ -102,15 +103,11 @@ public class MainActivity extends AppCompatActivity {
                     MyPreferences myPreferences = new MyPreferences(pref);
                     pref = myPreferences.saveOnDevice(mUserInfo);
 
-                    askForPermission(gotPermission, askedBefore);
+                    askForPermission(gotPermission);
 
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            DataBaseCheck dataBaseCheck = new DataBaseCheck();
-                            dataBaseCheck.dataBaseChecker(pref, MainActivity.this);
-                        }
-                    }, 5000);
+                    DataBaseCheck dataBaseCheck = new DataBaseCheck();
+                    dataBaseCheck.dataBaseChecker(pref, MainActivity.this);
+
 
                 }
             }
@@ -120,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Error in Getting User Info", Toast.LENGTH_LONG).show();
             }
         });
-
 
 
         homeListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
@@ -159,9 +155,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void askForPermission(Boolean gotPermission, Boolean askedBefore) {
+    public void askForPermission(Boolean gotPermission) {
 
-        if (!gotPermission || !askedBefore) {
+        if (!gotPermission) {
             String[] perm = new String[1];
             perm[0] = WRITE_EXTERNAL_STORAGE;
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1) {

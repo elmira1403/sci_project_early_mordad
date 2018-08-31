@@ -4,6 +4,7 @@
     <gradient android:angle="270"
               android:endColor="#E2E2E2" android:startColor="#BABABA" />
     <stroke android:width="2dp" android:color="#BABABA" />
+
     <corners android:radius="@dimen/w_button_radius" />
     <padding
         android:left="@dimen/vertical_margin_extra_small"

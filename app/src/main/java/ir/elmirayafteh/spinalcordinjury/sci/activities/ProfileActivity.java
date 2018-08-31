@@ -19,6 +19,7 @@ import static ir.elmirayafteh.spinalcordinjury.sci.R.array.profileList;
 import static ir.elmirayafteh.spinalcordinjury.sci.R.id.profile_list_view;
 
 public class ProfileActivity extends AppCompatActivity {
+    public final String USER = "MyUser";
     TextView cell_number;
     SharedPreferences pref;
     String[] profileStringArray;
@@ -33,10 +34,10 @@ public class ProfileActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        pref = getSharedPreferences("MyUser", Context.MODE_PRIVATE);
+        pref = getSharedPreferences(USER, MODE_PRIVATE);
 
         cell_number = (TextView) findViewById(R.id.cellNumberTextView);
-        cell_number.setText("+98" + pref.getString("phone_number", null));
+        cell_number.setText("+98" + pref.getString("phone_number", "xxxxxxxxxx"));
 
         profileStringArray = getResources().getStringArray(profileList);
         String[] profileValues = {pref.getString("email", null), pref.getString("birthday", null),
@@ -87,6 +88,8 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        pref = getSharedPreferences(USER, MODE_PRIVATE);
+
         String[] profileValues = {pref.getString("email", null), pref.getString("birthday", null),
                 pref.getString("sci_type", null), pref.getString("experience_level", null),
                 pref.getString("upper_strength", null), pref.getString("gender", null),

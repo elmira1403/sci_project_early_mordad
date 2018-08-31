@@ -2,23 +2,27 @@ package ir.elmirayafteh.spinalcordinjury.sci;
 
 
 import android.app.DownloadManager;
+import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Environment;
 import android.widget.Toast;
+
+import java.io.File;
+import java.util.List;
 
 import ir.elmirayafteh.spinalcordinjury.sci.activities.ExerciseActivity;
 import ir.elmirayafteh.spinalcordinjury.sci.activities.RecommendationActivity;
 import ir.elmirayafteh.spinalcordinjury.sci.database.RecCaseBaseHelper;
 import ir.elmirayafteh.spinalcordinjury.sci.database.RecCaseDbSchema;
-
-import java.io.File;
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -40,17 +44,83 @@ public class DataBaseCheck {
     private final String GENDER = "gender";
     private SQLiteDatabase mDatabase;
     private String DownloadUrl = "http://elmirayafteh.ir/sciwebservice/";
-
     private Retrofit retrofit;
+    private ProgressDialog dl_progress;
+    public BroadcastReceiver receiveDownloadComplete;
+    private int d_count;
+    Thread thread;
 
     public void dataBaseChecker(SharedPreferences shPref, Context m_context) {
         pref = shPref;
         mContext = m_context;
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://elmirayafteh.ir/sciwebservice/").addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(DownloadUrl).addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         databaseInflater();
+
+        dl_progress = new ProgressDialog(mContext);
+        dl_progress.setMessage("لطفا صبر کنید...");
+        dl_progress.setTitle("دانلود اطلاعات");
+        dl_progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        dl_progress.setIndeterminate(true);
+        dl_progress.setProgress(0);
+        dl_progress.setCancelable(false);
+        dl_progress.setCanceledOnTouchOutside(false);
+
+        final int totalProgressTime = 100;
+        thread = new Thread() {
+            @Override
+            public void run() {
+                int jumpTime = 0;
+
+                while (jumpTime < totalProgressTime) {
+                    try {
+                        sleep(200);
+                        jumpTime += 5;
+                        dl_progress.setProgress(jumpTime);
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+
+
+            }
+        };
+        thread.start();
+
+        receiveDownloadComplete = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+
+                long receivedID = intent.getLongExtra(
+                        DownloadManager.EXTRA_DOWNLOAD_ID, -1L);
+                DownloadManager mgr = (DownloadManager)
+                        context.getSystemService(Context.DOWNLOAD_SERVICE);
+
+                DownloadManager.Query query = new DownloadManager.Query();
+                query.setFilterById(receivedID);
+                Cursor cur = mgr.query(query);
+                int index = cur.getColumnIndex(DownloadManager.COLUMN_STATUS);
+                if(cur.moveToFirst()) {
+                    if(cur.getInt(index) != DownloadManager.STATUS_RUNNING){
+                        dl_progress.cancel();
+                    }
+                }
+                cur.close();
+
+            }
+        };
+
+        mContext.registerReceiver(receiveDownloadComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+
+    }
+
+    private void downloadChecker(ProgressDialog dl_progress) {
+
+        dl_progress.show();
+
     }
 
     private void databaseInflater() {
@@ -77,14 +147,23 @@ public class DataBaseCheck {
                     }
                     mDatabase.close();
                     mediaFiles();
+                    exerciseInflater();
                 }
             }
 
             @Override
             public void onFailure(Call<List<Case>> call, Throwable t) {
                 Toast.makeText(mContext, "Unable to retrieve case list", Toast.LENGTH_LONG).show();
+                exerciseInflater();
             }
         });
+
+    }
+
+    private void exerciseInflater() {
+        String sci_type = pref.getString(SCI_TYPE, null);
+        String experience_level = pref.getString(XP_LEVEL, null);
+        String upper_strength = pref.getString(UP_STRENGTH, null);
 
         ExerciseList e_service = retrofit.create(ExerciseList.class);
         e_service.getCases(sci_type, experience_level, upper_strength).enqueue(new Callback<List<Exercise>>() {
@@ -204,7 +283,40 @@ public class DataBaseCheck {
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(DownloadUrl + folder + "/" + fileName));
         request.allowScanningByMediaScanner();
         request.setDestinationInExternalPublicDir("sci/" + folder + "/", fileName);
+//        String path=Environment.getExternalStorageDirectory().toString().concat("/sci/" + folder);
         DownloadManager manager = (DownloadManager) mContext.getSystemService(Context.DOWNLOAD_SERVICE);
+
+//        boolean isDownloading = false;
+//        DownloadManager.Query query = new DownloadManager.Query();
+//        query.setFilterByStatus(
+//                DownloadManager.STATUS_PAUSED|
+//                        DownloadManager.STATUS_PENDING|
+//                        DownloadManager.STATUS_RUNNING|
+//                        DownloadManager.STATUS_SUCCESSFUL
+//        );
+//        Cursor cur = manager.query(query);
+//        int col = cur.getColumnIndex(
+//                DownloadManager.COLUMN_LOCAL_URI);
+//        if (!cur.isClosed()){
+//            for(cur.moveToFirst(); !cur.isAfterLast(); cur.moveToNext()) {
+//                isDownloading = isDownloading || (cur.getString(col).equals(path));
+//            }
+//            cur.close();
+//        }
+//
+//
+//        if (!isDownloading) {
+//            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(DownloadUrl + folder + "/" + fileName));
+//            request.allowScanningByMediaScanner();
+//            request.setDestinationInExternalPublicDir("sci/" + folder + "/", fileName);
+//
+////            request.setNotificationVisibility(
+////                    DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED
+////            );
+//            request.allowScanningByMediaScanner();
+//
+//            long id = manager.enqueue(request);
+//        }
 
         Boolean check = true;
         File f = new File(Environment.getExternalStorageDirectory() + "/sci/" + folder);
@@ -221,5 +333,23 @@ public class DataBaseCheck {
             manager.enqueue(request);
         }
 
+        downloadChecker(dl_progress);
     }
+
+    public class DownloadTask extends AsyncTask<Void, Void, Void>{
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            mediaFiles();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            dl_progress.cancel();
+
+        }
+    }
+
 }
